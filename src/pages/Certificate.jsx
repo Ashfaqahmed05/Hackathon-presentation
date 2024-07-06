@@ -34,7 +34,7 @@ const Certificate = React.forwardRef(({ studentName, courseName, batch, userId }
             </div>
         </div>
         <div className="qr-code">
-            <QrCode value={`http://localhost:5173/myCertificate/${userId}`} width={120} height={120} />
+            <QrCode value={`https://hackathon-presentation.vercel.app//myCertificate/${userId}`} width={120} height={120} />
         </div>
     </div>
 ));
