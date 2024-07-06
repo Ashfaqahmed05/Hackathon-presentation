@@ -1,28 +1,42 @@
 import * as React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "../pages/Home/Home";
-import Signin from "../pages/Authentication/Signin";
-import Signup from "../pages/Authentication/Signup";
+import Signup from "../pages/Authentication/Signin";
 import NoPage from "../pages/NoPage/NoPage";
-import MyState from "../context/myState";
+import CertificateComponent from "../pages/Certificate";
+import CertificateList from "../pages/CertificateList";
+import ProtectedRoute from "./ProtectedRoutes";
+
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
+        element: (
+        <ProtectedRoute>
+            <Home />
+        </ProtectedRoute>
+    ),
     },
     {
         path: "*",
         element: <NoPage />,
     },
-    {
-        path: "/signin",
-        element: <Signin />,
-    },
+   
     {
         path: "/Signup",
         element: <Signup />,
     },
+    {
+        path: "/certificate/:id",
+        element: (
+        <ProtectedRoute>
+            <CertificateComponent />
+        </ProtectedRoute>)
+    },
+    {
+        path: "/myCertificate/:id",
+        element: <CertificateList/>
+    }
 
 
 ]);
@@ -32,9 +46,7 @@ const router = createBrowserRouter([
 
 const Router = () => {
     return (
-        <MyState>
             <RouterProvider router={router} />
-        </MyState>
     )
 };
 

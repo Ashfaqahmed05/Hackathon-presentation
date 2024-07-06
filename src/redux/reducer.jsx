@@ -1,18 +1,28 @@
+// src/redux/authSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  formData: {},
+  isAuthenticated: false,
+  user: null,
 };
 
-const formSlice = createSlice({
-  name: 'form',
+const authSlice = createSlice({
+  name: 'auth',
   initialState,
   reducers: {
-    saveForm: (state, action) => {
-      state.formData = action.payload;
+    login(state, action) {
+      state.isAuthenticated = true;
+      state.user = action.payload;
+    },
+    logout(state) {
+      state.isAuthenticated = false;
+      state.user = null;
     },
   },
 });
 
-export const { saveForm } = formSlice.actions;
-export default formSlice.reducer;
+export const { login, logout } = authSlice.actions;
+export const selectAuth = (state) => state.auth;
+
+export default authSlice.reducer;
