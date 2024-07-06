@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -46,19 +45,3 @@ const Home = () => {
 };
 
 export default Home;
-=======
-import React from 'react'
-import Layout from '../../components/Layout/Layout'
-import CertificateComponent from '../cirtificaate'
-
-const Home = () => {
-  return (
-    <Layout>
-        <CertificateComponent/>
-
-    </Layout>
-  )
-}
-
-export default Home
->>>>>>> 8f30ee90b351a4d5d388d83cef02cc77953d738d
